@@ -11,6 +11,23 @@ movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores U
 
 movies_df.head(5)
 
+
+
+def Distribution_of_Studio_names():
+ movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/Coursework/Coursework/data.csv')
+
+ a = plt.cm.Wistia
+
+ plt.figure(figsize=(10,5))
+ count = movies_df['production_company'].value_counts()[:10]
+ sns.barplot(count.values, count.index, palette=[a(0.1),a(0.2),a(0.3),a(0.4),a(0.5),a(0.6),a(0.7),a(0.8),a(0.9),a(0.99)])
+ for index, valu in enumerate(count.values):
+     plt.text(0.8,index,valu,color='k',fontsize=10)
+ plt.xlabel('Count', fontsize=10)
+ plt.ylabel('Studio name', fontsize=5)
+ plt.title("Distribution of Studio names", fontsize=15)
+ plt.show()
+ 
 def Movies_by_the_year():
  movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/Coursework/Coursework/data.csv')
 
@@ -27,22 +44,6 @@ def Movies_by_the_year():
  plt.xlabel('Year of release',size=15)
  plt.axis([1920, 2019, 0, 1750])
  plt.xticks(np.arange(1920, 2018, step=5),rotation=45, ha='right')
- plt.show()
- 
-
-def Distribution_of_Studio_names():
- movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/Coursework/Coursework/data.csv')
-
- a = plt.cm.cool
-
- plt.figure(figsize=(10,5))
- count = movies_df['production_company'].value_counts()[:10]
- sns.barplot(count.values, count.index, palette=[a(0.1),a(0.2),a(0.3),a(0.4),a(0.5),a(0.6),a(0.7),a(0.8),a(0.9),a(0.99)])
- for i, v in enumerate(count.values):
-     plt.text(0.8,i,v,color='k',fontsize=14)
- plt.xlabel('Count', fontsize=12)
- plt.ylabel('Studio name', fontsize=12)
- plt.title("Distribution of Studio names", fontsize=16)
  plt.show()
  
  
@@ -65,18 +66,17 @@ def Distribution_of_Studio_Genres():
  
  
 
-
-print('Enter 1 for Movies by the year')
-print('Enter 2 for Distribution of Studio_names')
+print('Enter 1 for Distribution of Studio names')
+print('Enter 2 for Movies by the year')
 print('Enter 3 for Distribution of Genres')
 
 
 src=int(input('Enter here: '))
 
-if src==1:
-    Movies_by_the_year()
-elif src==2:
+if  src==1:
     Distribution_of_Studio_names()
+elif src==2:
+    Movies_by_the_year()
 elif src==3:
      Distribution_of_Studio_Genres()
 
