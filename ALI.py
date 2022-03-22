@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from pickle import TRUE
 import seaborn as sns
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -27,6 +28,7 @@ def Distribution_of_Studio_names():
  plt.ylabel('Studio name', fontsize=10)
  plt.title("Distribution of Studio names", fontsize=15)
  plt.show()
+ 
  
 def Distribution_of_Authors_names():
  movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/Coursework/Coursework/data.csv')
@@ -84,10 +86,15 @@ def Distribution_of_Studio_Genres():
 print('Enter 1 for Distribution of Studio names')
 print('Enter 2 for Distribution of Authors')
 
+print('Enter 3 for Movies by the year')
+print('Enter 4 for Distribution of Genres')
+
+src= int(input('Select option'))
 
 
-
-src=int(input('Enter here: '))
+while src not in [1, 2, 3, 4] :
+    src=int(input('Invalid option please enter another here: '))
+    
 
 if  src==1:
     Distribution_of_Studio_names()
@@ -97,6 +104,3 @@ elif src==3:
     Movies_by_the_year()
 elif src==4:
      Distribution_of_Studio_Genres()
-
-else:
-    print('Sorry, invalid')
