@@ -1,14 +1,9 @@
 import pandas as pd
 import numpy as np
 import seaborn as sns
-import re
-sns.set_theme(style="dark")
-from plotly.offline import init_notebook_mode,iplot
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from subprocess import check_output
-from wordcloud import WordCloud, STOPWORDS
-init_notebook_mode(connected=True)
 pd.set_option('display.max_columns', None)
 pd.options.mode.chained_assignment = None
 
@@ -24,7 +19,6 @@ def Movies_by_the_year():
  movies_df['original_release_date'] = pd.to_datetime(movies_df['original_release_date'])
  movies_df['movie_year'] = movies_df['original_release_date'].apply(lambda x: x.year)
  
- sns.set(style="white")
 
  plt.figure(figsize=(10,5))
  plt.title('Movies by the year', size=20)
