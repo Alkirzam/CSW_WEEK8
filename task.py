@@ -16,8 +16,8 @@ plt.figure(figsize=(15,10))
 count = movies_df['publisher_name'].value_counts()[:15]
 sns.barplot(count.values, count.index, palette=[a(0.1),a(0.2),a(0.3),a(0.4),a(0.5),a(0.6),a(0.7),a(0.8),a(0.9),a(0.99)])
 for i, v in enumerate(count.values):
-    plt.text(0.8,i,v,color='k',fontsize=10)
+    plt.text(50.0,i,v,color='b',fontsize=10)
 plt.xlabel('Count', fontsize=12)
 plt.ylabel('Studio name', fontsize=12)
-plt.title("Distribution of publisher's names in critic reviews", fontsize=16)
+plt.title("Distribution of publishers and critic reviews", fontsize=16)
 plt.show()
