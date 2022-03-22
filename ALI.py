@@ -18,14 +18,29 @@ def Distribution_of_Studio_names():
 
  a = plt.cm.Wistia
 
- plt.figure(figsize=(10,5))
+ plt.figure(figsize=(20,5))
  count = movies_df['production_company'].value_counts()[:10]
  sns.barplot(count.values, count.index, palette=[a(0.1),a(0.2),a(0.3),a(0.4),a(0.5),a(0.6),a(0.7),a(0.8),a(0.9),a(0.99)])
- for index, valu in enumerate(count.values):
-     plt.text(0.8,index,valu,color='k',fontsize=10)
- plt.xlabel('Count', fontsize=10)
- plt.ylabel('Studio name', fontsize=5)
+ for i, v in enumerate(count.values):
+     plt.text(10.0,i,v,color='k',fontsize=10)
+ plt.xlabel('Count Movies', fontsize=10)
+ plt.ylabel('Studio name', fontsize=10)
  plt.title("Distribution of Studio names", fontsize=15)
+ plt.show()
+ 
+def Distribution_of_Authors_names():
+ movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/Coursework/Coursework/data.csv')
+
+ a = plt.cm.Wistia
+
+ plt.figure(figsize=(20,5))
+ count = movies_df['authors'].value_counts()[:10]
+ sns.barplot(count.values, count.index, palette=[a(0.1),a(0.2),a(0.3),a(0.4),a(0.5),a(0.6),a(0.7),a(0.8),a(0.9),a(0.99)])
+ for i, v in enumerate(count.values):
+     plt.text(10.0,i,v,color='k',fontsize=10)
+ plt.xlabel('Count Work', fontsize=10)
+ plt.ylabel('Studio name', fontsize=10)
+ plt.title("Distribution of Authors names", fontsize=15)
  plt.show()
  
 def Movies_by_the_year():
@@ -67,17 +82,20 @@ def Distribution_of_Studio_Genres():
  
 
 print('Enter 1 for Distribution of Studio names')
-print('Enter 2 for Movies by the year')
-print('Enter 3 for Distribution of Genres')
+print('Enter 2 for Distribution of Authors')
+
+
 
 
 src=int(input('Enter here: '))
 
 if  src==1:
     Distribution_of_Studio_names()
-elif src==2:
-    Movies_by_the_year()
+elif src ==2:
+    Distribution_of_Authors_names()
 elif src==3:
+    Movies_by_the_year()
+elif src==4:
      Distribution_of_Studio_Genres()
 
 else:
