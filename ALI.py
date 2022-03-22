@@ -30,20 +30,23 @@ def Distribution_of_Studio_names():
  plt.show()
  
  
-def Distribution_of_Authors_names():
+def Boxplot_of_TomatoMeter_rating_per_Studio():
  movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/Coursework/Coursework/data.csv')
 
- a = plt.cm.Wistia
+ movies_df['Studio'] = movies_df['production_company'].str.split(' ').str[0]
 
- plt.figure(figsize=(20,5))
- count = movies_df['authors'].value_counts()[:10]
- sns.barplot(count.values, count.index, palette=[a(0.1),a(0.2),a(0.3),a(0.4),a(0.5),a(0.6),a(0.7),a(0.8),a(0.9),a(0.99)])
- for i, v in enumerate(count.values):
-     plt.text(10.0,i,v,color='k',fontsize=10)
- plt.xlabel('Count Work', fontsize=10)
- plt.ylabel('Studio name', fontsize=10)
- plt.title("Distribution of Authors names", fontsize=15)
+ count = movies_df['Studio'].value_counts()[:10]
+ top_Studio = list(count.index)
+ movie_Studio_df = movies_df[movies_df['Studio'].isin(top_Studio)]
+
+ plt.figure(figsize=(15, 10))
+ sns.set_style("whitegrid")
+ sns.boxplot(x='Studio', y='tomatometer_rating', data=movie_Studio_df)
+ plt.xlabel("Studio names",fontsize=10)
+ plt.ylabel("TomatoMeter Rating",fontsize=10)
+ plt.title("Boxplot of TomatoMeter rating per Studio ", fontsize=15)
  plt.show()
+
  
 def Movies_by_the_year():
  movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/Coursework/Coursework/data.csv')
@@ -84,7 +87,7 @@ def Distribution_of_Studio_Genres():
  
 
 print('Enter 1 for Distribution of Studio names')
-print('Enter 2 for Distribution of Authors')
+print('Enter 2 Boxplot of TomatoMeter rating per Studio')
 
 print('Enter 3 for Movies by the year')
 print('Enter 4 for Distribution of Genres')
@@ -99,7 +102,7 @@ while src not in [1, 2, 3, 4] :
 if  src==1:
     Distribution_of_Studio_names()
 elif src ==2:
-    Distribution_of_Authors_names()
+    Boxplot_of_TomatoMeter_rating_per_Studio()
 elif src==3:
     Movies_by_the_year()
 elif src==4:
