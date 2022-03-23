@@ -4,9 +4,7 @@ from pickle import TRUE
 import seaborn as sns
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-from subprocess import check_output
-pd.set_option('display.max_columns', None)
-pd.options.mode.chained_assignment = None
+
 
 movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/Coursework/Coursework/data.csv')
 
