@@ -9,8 +9,12 @@ movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores U
 
 
 
+<<<<<<< HEAD
 
 def Distribution_of_Studio_names_BY_Ali():
+=======
+def Distribution_of_Studio_names():
+>>>>>>> 7a5569d2d9eb4c1b1d6f3bfb0254ae62b1e366e3
  movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/Coursework/Coursework/data.csv')
 
  a = plt.cm.Wistia
@@ -26,7 +30,11 @@ def Distribution_of_Studio_names_BY_Ali():
  plt.show()
  
  
+<<<<<<< HEAD
 def TomatoMeter_rating_per_Studio_BY_Ali():
+=======
+def Boxplot_of_TomatoMeter_rating_per_Studio():
+>>>>>>> 7a5569d2d9eb4c1b1d6f3bfb0254ae62b1e366e3
  movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/Coursework/Coursework/data.csv')
 
  movies_df['Studio'] = movies_df['production_company'].str.split(' ').str[0]
@@ -44,7 +52,11 @@ def TomatoMeter_rating_per_Studio_BY_Ali():
  plt.show()
 
  
+<<<<<<< HEAD
 def Movies_by_the_year_BY_Sura():
+=======
+def Movies_by_the_year():
+>>>>>>> 7a5569d2d9eb4c1b1d6f3bfb0254ae62b1e366e3
  movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/Coursework/Coursework/data.csv')
 
     
@@ -101,7 +113,10 @@ def reviews_BY_Ibby():
 
  reviews_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/CSW_WEEK8/CSW_WEEK8-1/rotten_tomatoes_critic_reviews.csv')
 
+print('Enter 1 for Distribution of Studio names')
+print('Enter 2 Boxplot of TomatoMeter rating per Studio')
 
+<<<<<<< HEAD
  reviews_df = reviews_df[reviews_df.review_date.notnull()]
  reviews_df['review_date'] = pd.to_datetime(reviews_df['review_date'])
  reviews_df['review_year'] = reviews_df['review_date'].apply(lambda x: x.year)
@@ -231,8 +246,27 @@ if src==1:
     Movies_by_the_year_BY_Sura()
 elif src==2:
     reviews_BY_Ibby()
+=======
+print('Enter 3 for Movies by the year')
+print('Enter 4 for Distribution of Genres')
+
+src= int(input('Select option'))
+
+
+while src not in [1, 2, 3, 4] :
+    src=int(input('Invalid option please enter another here: '))
+    
+
+if  src==1:
+    Distribution_of_Studio_names()
+elif src ==2:
+    Boxplot_of_TomatoMeter_rating_per_Studio()
+>>>>>>> 7a5569d2d9eb4c1b1d6f3bfb0254ae62b1e366e3
 elif src==3:
+    Movies_by_the_year()
+elif src==4:
      Distribution_of_Studio_Genres()
+<<<<<<< HEAD
 elif src==4:
     Audience_rating_per_Genre()
 elif  src==5:
@@ -249,3 +283,5 @@ elif src==9:
 
 
 
+=======
+>>>>>>> 7a5569d2d9eb4c1b1d6f3bfb0254ae62b1e366e3
