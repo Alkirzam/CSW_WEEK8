@@ -215,7 +215,7 @@ print('Enter 4 for Audience rating per Genre')
 print('Enter 5 for Distribution of Studio names')
 print('Enter 6 for TomatoMeter rating per Studio')
 print('Enter 7 for distribution of publishers and critic reviws')
-print('Enter 8 for TomatoMeter count in Rotten,TomatoMeter count in Certified Fresh, TomatoMeter count in Fresh')
+print('Enter 8 for TomatoMeter count in Rotten, TomatoMeter count in Fresh')
 print('Enter 9 for comparing by different genres  ')
 src= int(input('Select option:  '))
 while src not in [1, 2, 3, 4, 5, 6, 7, 8, 9] :
