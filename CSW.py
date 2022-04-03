@@ -11,15 +11,14 @@ movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores U
 
 def Distribution_of_Studio_names_BY_Ali():
  movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/Coursework/Coursework/data.csv')
- movies_df['Studio'] = movies_df['production_company'].str.split(' ').str[0]
 
  a = plt.cm.Wistia
 
  plt.figure(figsize=(10,5))
- count = movies_df['production_company'].value_counts()[:7]
+ count = movies_df['production_company'].value_counts()[:10]
  sns.barplot(count.values, count.index, palette=[a(0.1),a(0.2),a(0.3),a(0.4),a(0.5),a(0.6),a(0.7),a(0.8),a(0.9),a(0.99)])
- for i, v in enumerate(count.values):
-     plt.text(10.0,i,v,color='k',fontsize=10)
+ for i, e in enumerate(count.values):
+     plt.text(10.0,i,e,color='k',fontsize=10)
  plt.xlabel('Count', fontsize=10)
  plt.ylabel('Studio name', fontsize=10)
  plt.title("Distribution of Studio names", fontsize=15)
@@ -68,8 +67,8 @@ def Distribution_of_Genres_Name():
  plt.figure(figsize=(15,10))
  count = movies_df['genre'].value_counts()[:8]
  sns.barplot(count.values, count.index, palette=[a(0.1),a(0.2),a(0.3),a(0.4),a(0.5),a(0.6),a(0.7)])
- for i, v in enumerate(count.values):
-  plt.text(10.0,i,v,color='k',fontsize=10)
+ for i, e in enumerate(count.values):
+  plt.text(10.0,i,e,color='k',fontsize=10)
  plt.xlabel('Count', fontsize=12)
  plt.ylabel('Genre name', fontsize=12)
  plt.title("Distribution of Genres names", fontsize=16)
