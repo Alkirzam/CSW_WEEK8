@@ -58,36 +58,6 @@ def Movies_by_the_year_BY_Sura():
  plt.show()
  
  
-def Distribution_of_Genres_Name():
- movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/Coursework/Coursework/data.csv')
- movies_df['genre'] = movies_df['genres'].str.split(',').str[0]
-
- a = plt.cm.Wistia
-
- plt.figure(figsize=(15,10))
- count = movies_df['genre'].value_counts()[:8]
- sns.barplot(count.values, count.index, palette=[a(0.1),a(0.2),a(0.3),a(0.4),a(0.5),a(0.6),a(0.7)])
- for i, e in enumerate(count.values):
-  plt.text(10.0,i,e,color='k',fontsize=10)
- plt.xlabel('Count', fontsize=12)
- plt.ylabel('Genre name', fontsize=12)
- plt.title("Distribution of Genres names", fontsize=16)
- plt.show()
- 
-def  Audience_rating_per_Genre():
- movies_df = pd.read_csv('C:/Users/alialkirzam/OneDrive - Liverpool John Moores University/Documents/GitHub/CSW_WEEK8/CSW_WEEK8-1/rotten_tomatoes_movies.csv')
- movies_df['genre'] = movies_df['genres'].str.split(',').str[0]
- 
- count = movies_df['genre'].value_counts()[:7]
- top_genres = list(count.index)
- movie_genres_df = movies_df[movies_df['genre'].isin(top_genres)]
- 
- plt.figure(figsize=(15, 10))
- sns.boxplot(x='genre', y='audience_rating', data=movie_genres_df)
- plt.xlabel("Genre Name",fontsize=12)
- plt.ylabel("Audience Rating",fontsize=12)
- plt.title("Boxplot of Audience rating per Genre", fontsize=16)
- plt.show()
  
 def reviews_BY_Ibby():
 
@@ -210,35 +180,29 @@ def Ye_BY_Yusef():
 print('------------The Option-----------')
 print('Enter 1 for Movies by the year')
 print('Enter 2 for Reviews by the year')
-print('Enter 3 for Distribution of Genres')
-print('Enter 4 for Audience rating per Genre')
-print('Enter 5 for Distribution of Studio names')
-print('Enter 6 for TomatoMeter rating per Studio')
-print('Enter 7 for distribution of publishers and critic reviws')
-print('Enter 8 for TomatoMeter count in Rotten, TomatoMeter count in Fresh')
-print('Enter 9 for comparing by different genres  ')
+print('Enter 3 for Distribution of Studio names')
+print('Enter 4 for TomatoMeter rating per Studio')
+print('Enter 5 for distribution of publishers and critic reviws')
+print('Enter 6 for TomatoMeter count in Rotten, TomatoMeter count in Fresh')
+print('Enter 7 for comparing by different genres  ')
 src= int(input('Select option:  '))
-while src not in [1, 2, 3, 4, 5, 6, 7, 8, 9] :
+while src not in [1, 2, 3, 4, 5, 6, 7] :
     src=int(input('Invalid option please enter another here: '))
     
 if src==1:
     Movies_by_the_year_BY_Sura()
 elif src==2:
     reviews_BY_Ibby()
-elif src==3:
-     Distribution_of_Genres_Name()
-elif src==4:
-    Audience_rating_per_Genre()
-elif  src==5:
+elif  src==3:
     Distribution_of_Studio_names_BY_Ali()
-elif src ==6:
+elif src ==4:
     TomatoMeter_rating_per_Studio_BY_Ali()
-elif src==7:
+elif src==5:
      distribution_of_publishers_and_critic_reviws_BY_Said()
-elif src==8:
+elif src==6:
     BY_Abubaker()
 
-elif src==9:
+elif src==7:
     Ye_BY_Yusef()
 
 
