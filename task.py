@@ -37,16 +37,16 @@ def Validation():
 
 print("\nPlease choose the first genre you would like to compare")
 Validation()
-firstCertifiedFresh = "{:.1f}".format(certifiedFresh/total)
-firstFresh = "{:.1f}".format(fresh/total)
-firstRotten = "{:.1f}".format(rotten/total)
+firstCertifiedFresh = certifiedFresh/total
+firstFresh = fresh/total
+firstRotten = rotten/total
 firstGenre = genre
 
 print("\nPlease choose the second genre you would like to compare")
 Validation()
-secondCertifiedFresh = "{:.1f}".format(certifiedFresh/total)
-secondFresh = "{:.1f}".format(fresh/total)
-secondRotten = "{:.1f}".format(rotten/total)
+secondCertifiedFresh = certifiedFresh/total
+secondFresh = fresh/total
+secondRotten = rotten/total
 secondGenre = genre
 
 data1 = [firstCertifiedFresh, firstFresh, firstRotten]
@@ -56,8 +56,8 @@ labels = 'Certified Fresh', 'Fresh', 'Rotten'
 
 fig, (ax1, ax2) = plt.subplots(1, 2)
 
-ax1.pie(data1, labels=labels, autopct='%.1f%%', colors=['green','orange','red',], normalize = True)
-ax2.pie(data2, labels=labels, autopct='%.1f%%', colors=['green','orange','red',], normalize = True)
+ax1.pie(data1, labels=labels, autopct='%.1f%%', colors=['green','orange','red',])
+ax2.pie(data2, labels=labels, autopct='%.1f%%', colors=['green','orange','red',])
 
 ax1.set_title(firstGenre)
 ax2.set_title(secondGenre)
