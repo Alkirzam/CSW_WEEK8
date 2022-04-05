@@ -4,6 +4,8 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+sns.set_color_codes()
+
 #Reading & Parsing the data - Merging it into an array.
 pd.set_option('display.max_columns', None)
 reviews = pd.read_csv('reviews.csv')
@@ -14,7 +16,7 @@ reviews = reviews[reviews.review_year.astype(int) >= 2000]
 #Visualisation (histogram)
 plt.figure(figsize=(15,10))
 plt.title('Reviews by the Year', size=20)
-sns.distplot(reviews.review_year, bins=20, kde=False)
+sns.distplot(reviews.review_year, bins=20, kde=False, color='m')
 plt.ylabel('Crtic Reviews', size=15)
 plt.xlabel('Yearly Reviews',size=15)
 plt.axis([2000, 2019, 0, 75000])
