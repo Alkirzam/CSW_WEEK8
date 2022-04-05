@@ -1,0 +1,9 @@
+# libaries used
+import pandas as pd
+
+#Reading & Parsing the data - Merging it into an array.
+pd.set_option('display.max_columns', None)
+reviews = pd.read_csv('reviews.csv')
+reviews['review_date'] = pd.to_datetime(reviews['review_date'])
+reviews['review_year'] = reviews['review_date'].apply(lambda x: x.year)
+reviews = reviews[reviews.review_year.astype(int) >= 2000]
