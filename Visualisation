@@ -1,5 +1,8 @@
 # libaries used
 import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 #Reading & Parsing the data - Merging it into an array.
 pd.set_option('display.max_columns', None)
@@ -7,3 +10,13 @@ reviews = pd.read_csv('reviews.csv')
 reviews['review_date'] = pd.to_datetime(reviews['review_date'])
 reviews['review_year'] = reviews['review_date'].apply(lambda x: x.year)
 reviews = reviews[reviews.review_year.astype(int) >= 2000]
+
+#Visualisation (histogram)
+plt.figure(figsize=(15,10))
+plt.title('Reviews by the Year', size=20)
+sns.distplot(reviews.review_year, bins=20, kde=False)
+plt.ylabel('Crtic Reviews', size=15)
+plt.xlabel('Yearly Reviews',size=15)
+plt.axis([2000, 2019, 0, 75000])
+plt.xticks(np.arange(2000, 2019, step=1),rotation=45, ha='right')
+plt.show()
