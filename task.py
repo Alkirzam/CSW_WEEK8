@@ -1,5 +1,4 @@
 import csv
-from locale import normalize
 import pandas as pd
 from matplotlib import pyplot as plt
 
