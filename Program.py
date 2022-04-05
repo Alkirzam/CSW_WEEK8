@@ -135,9 +135,9 @@ def Validation():
          genre = "Action & Adventure"
 
 
-     certifiedFresh =len(df[(df['genres']==genre)&(df['tomatometer_status']=='Certified-Fresh')])
-     fresh =len(df[(df['genres']==genre)&(df['tomatometer_status']=='Fresh')])
-     rotten =len(df[(df['genres']==genre)&(df['tomatometer_status']=='Rotten')])
+     certifiedFresh = len(df[(df['genres'].str.contains(genre))&(df['tomatometer_status'].str.contains('Certified-Fresh'))])
+     fresh = len(df[(df['genres'].str.contains(genre))&(df['tomatometer_status'].str.contains('Fresh'))])
+     rotten = len(df[(df['genres'].str.contains(genre))&(df['tomatometer_status'].str.contains('Rotten'))])
      total = certifiedFresh+fresh+rotten
  
 def Ye_BY_Yusef():
@@ -166,8 +166,8 @@ def Ye_BY_Yusef():
 
  fig, (ax1, ax2) = plt.subplots(1, 2)
 
- ax1.pie(data1, labels=labels, autopct='%.2f%%')
- ax2.pie(data2, labels=labels, autopct='%.2f%%')
+ ax1.pie(data1, labels=labels, autopct='%.1f%%', colors=['green','orange','red',])
+ ax2.pie(data2, labels=labels, autopct='%.1f%%', colors=['green','orange','red',])
 
  ax1.set_title(firstGenre)
  ax2.set_title(secondGenre)
